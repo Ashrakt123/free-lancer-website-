@@ -1,0 +1,37 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1>{{user.name}} Portfolio</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row  py-3 justify-content-center">
+        <div class="col-8 ">
+            <h3 class="title mb-5">{{portfolio.name}}</h3>
+            <div *ngIf="portfolio.images!='default.jpeg'">
+                <img src="http://localhost:8000/storage/portfolios/{{portfolio.images}}" class="d-block img mb-4" alt="{{portfolio.images}}">
+            </div>
+
+            <h4 class="section-title ">Description</h4>
+            <p>{{portfolio.description}}</p>
+            <div *ngIf="portfolio.link!=null">
+                <hr>
+                <h4 class="section-title mb-1">Link</h4>
+                <a href="#" class="link mb-1">{{portfolio.link}}</a>
+                <hr>
+
+            </div>
+
+            <div class="tags" *ngIf="portfolio.skills!=null">
+
+                <h4 class="section-title mb-1">Skills </h4>
+
+                <p-tag severity="success" class="tag" *ngFor="let skill of portfolio.skills">{{skill}}</p-tag>
+            </div>
+        </div>
+        <div class="col-1" *ngIf="activeEdit()">
+            <p-splitButton icon="pi pi-cog" [model]="items" styleClass="p-button-secondary"></p-splitButton>
+        </div>
+
+    </div>

@@ -1,0 +1,31 @@
+<div class="all">
+    <div class="Head " style="background-image: url('assets/pay.png');background-size:100% 120%; background-repeat: no-repeat ">
+      <p style="color: white;padding-top:80px;padding-left:13rem;width: 600px; font-size:40px;">
+        elevate your business with our digital payment solutions &hearts;</p>
+    </div>
+  
+  
+  
+  <div class="content" role="main">
+  
+      <!--<div class="card highlight-card card-small">
+    
+        <span>{{ title }} app is running!</span>
+    
+        
+      </div><br><br>-->
+    
+      
+        <form #checkout="ngForm" (ngSubmit)="onSubmit(checkout)" class="checkout">
+            <div class="form-row">
+                <label for="card-info">Card Info</label>
+                <div id="card-info" #cardInfo></div>
+    
+                <div id="card-errors" role="alert" *ngIf="error">{{ error }}</div>
+            </div>
+    
+            <button type="submit" [(ngModel)]="price">pay:${{price}}</button>
+        </form>
+    
+    </div>
+  </div>

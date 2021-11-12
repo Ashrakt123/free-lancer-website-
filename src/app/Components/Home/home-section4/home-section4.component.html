@@ -1,0 +1,30 @@
+<!-- Section4 -->
+<div class="container mb-5 mt-5">
+    <div class="row section4">
+        <div class="col-8">
+            <h2>Top Rated Freelancers</h2>
+        </div>
+        <div class="col-12 mt-md-3 d-flex justify-content-center">
+            <div class="row" *ngFor="let developer of Developers">
+                <!-- sCard1 -->
+                <div class="col-lg-3 col-md-6 d-flex justify-content-center mt-3" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;" (mouseleave)="removeStyle(img1 , cardBody1)">
+                        <img #img1 src="/assets/images/{{developer.image}}" class="card-img-top styleImgFst" alt="..." (mouseenter)="addStyle(img1 , cardBody1)">
+                        <div class="card-body" #cardBody1>
+                            <a routerLink="Catagories/{{developer.id}}">
+                                <p class="card-text fs-4 mb-1">{{(developer.name)+" "+ (developer.lname)}}</p>
+                            </a>
+                            <small><b>{{developer.name}}</b></small>
+                            <p class="text-muted">{{developer.overview}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class='dev_name mt-3'>
+                    <p>{{(developer.name)+" "+ (developer.lname)}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- End of Section4    -->

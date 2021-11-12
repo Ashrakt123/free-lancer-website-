@@ -1,0 +1,62 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1>Add Portfolio</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-5 ">
+    <div class="row justify-content-around">
+
+        <form class="col-10 box px-5" (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Title</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="name" type="text">
+                    <span class="text-danger"
+                    *ngIf="(formControl.name.touched || submitted) && formControl.name.errors?.required">
+                    Title is required
+                </span>
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="description" type="text">
+                    <span class="text-danger"
+                    *ngIf="(formControl.description.touched || submitted) && formControl.description.errors?.required">
+                    Description is required
+                </span>
+
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Link</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" type="text" formControlName="link">
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Related Skills</label>
+                <div class="col-sm-9">
+                <p-chips class="form-control" formControlName="skills"></p-chips>
+            </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Image</label>
+                <div class="col-sm-9">
+                    <input  type="file" class="form-control"  (change)="uploadImage($event)">
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-success">Add Portfolio</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

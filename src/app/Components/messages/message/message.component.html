@@ -1,0 +1,22 @@
+<div class="container">
+
+    <div class="d-flex flex-column align-items-stretch bg-white mt-5" style="width: 380px;">
+        <div href="/" class="d-flex align-items-center  p-3 link-dark text-decoration-none border-bottom">-->
+
+        </div>
+        <div class="list-group list-group-flush border-bottom scrollarea">
+            <div href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between" *ngFor="let msg of Message">
+                    <strong class="mb-1">{{(msg.name) + ' ' + (msg.lname)}}</strong>
+                    <div class="col-10 mb-1 small">{{msg.message}}</div>
+
+                </div>
+            </div>
+
+        </div>
+        <form (ngSubmit)="addmessage()">
+            <input type="text" class="form-control" [value]="SentMessage.message" placeholder="Enter Your Message" style="border: 1px black solid;" (change)='SentMessage.message=$any($event.target).value'>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</div>

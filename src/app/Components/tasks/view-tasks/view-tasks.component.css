@@ -1,0 +1,22 @@
+.cover {
+    background-image: url("../../../../assets/myimg/tasks/task (1).png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-shadow: white 0px 0px 2px;
+    height: 300px;
+    align-items: center;
+}
+
+.cover h1 {
+    color: white;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+.box {
+    border-radius: 5px;
+    background-color: rgb(241, 240, 240);
+}

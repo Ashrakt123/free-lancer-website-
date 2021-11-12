@@ -1,0 +1,16 @@
+<div class="row bg p-2">
+    <div class="col-12">
+        <a class="nav-link active ">
+            <i class="mdi mdi-newspaper"></i> Your Progress
+        </a>
+        <hr class="my-0">
+    </div>
+    <div class="empty" *ngIf="empty==true">
+        <p>
+            There are no projects
+        </p>
+    </div>
+    <div *ngIf="empty==false">
+        <p-chart type="pie" name="progress" [data]="data"></p-chart>
+    </div>
+</div>

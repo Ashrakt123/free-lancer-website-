@@ -1,0 +1,27 @@
+<div class="col-md-12" *ngIf="onlineUser.id== user.id">
+  <a routerLink="/setting/{{user.id}}" class="btn btn-primary" style="width: 100%;">Setting  &nbsp;  <fa-icon [icon]="faslide" aria-hidden="true"></fa-icon></a>
+</div>
+<div class="card mb-4 mt-4">
+  <!-- style="width: 18rem;"-->
+  <div class="card-header text-left bg-white">
+      <fa-icon [icon]="faSignal" aria-hidden="true"></fa-icon> Statistics
+  </div>
+  <div class="card-body">
+      <div class="row text-center">
+          <div class="col-md-6 col-ms-12">evaluation</div>
+          <div class="col-md-6 col-ms-12">
+              <p-rating [(ngModel)]="user.avrRate" [stars]="5" [cancel]="false" [readonly]="true"></p-rating>
+          </div>
+      </div>
+      <hr [hidden]="checkUser">
+      <div class="row text-center" [hidden]="checkUser">
+          <div class="col-md-6 col-ms-12">Project completion</div>
+          <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">{{user.projectDonePercent}}</span></div>
+      </div>
+      <hr [hidden]="checkUser">
+      <div class="row text-center" [hidden]="checkUser">
+          <div class="col-md-6 col-ms-12">On-time delivery</div>
+          <div class="col-md-6 col-ms-12"><span style="background-color: gray; color: white;">{{user.projectProcessesPercent}}</span></div>
+      </div>
+  </div>
+</div>

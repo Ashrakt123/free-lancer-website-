@@ -1,0 +1,30 @@
+/* Navbar */
+
+.navbar img {
+    width: 3.5rem;
+    height: auto;
+}
+
+.navbar {
+    background-color: #053742;
+}
+
+.navbar a {
+    color: #E8F0F2;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    color: #88c417
+}
+
+.bg-custom-1 {
+    background-color: #85144b;
+}
+
+.bg-custom-2 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+
+/* End of navbar */

@@ -1,0 +1,79 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1>Add Project</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-5 ">
+    <div class="row justify-content-around">
+
+        <form class="col-10 box px-5" (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Title</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="title" type="text">
+                    <span class="text-danger" *ngIf="(formControl.title.touched || submitted) && formControl.title.errors?.required">
+                    Title is required
+                </span>
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Description</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="description" type="text">
+                    <span class="text-danger" *ngIf="(formControl.description.touched || submitted) && formControl.description.errors?.required">
+                    Description is required
+                </span>
+
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Budget</label>
+                <div class="col-sm-9">
+                    <p-inputNumber [(ngModel)]="Project.budget" name="budget" formControlName="budget" [showButtons]="true" mode="currency" currency="USD"></p-inputNumber>
+                    <span class="text-danger" *ngIf="(formControl.budget.touched || submitted) && formControl.budget.errors?.required">
+                    Budget is required
+                </span>
+
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Location</label>
+                <div class="col-sm-9">
+                    <input class="col-sm-9" formControlName="location" class="form-control " type="text">
+                    <span class="text-danger" *ngIf="(formControl.location.touched || submitted) && formControl.location.errors?.required">
+                    Location is required
+                </span>
+
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Categeory</label>
+                <div class="col-sm-9">
+                    <select class="form-control" formControlName="categeory">
+                        <option  *ngFor="let item of allcatagories" value="{{item.id}}">{{item.name}}</option>
+                        <span class="text-danger"
+                        *ngIf="(formControl.categeory.touched || submitted) && formControl.categeory.errors?.required">
+                        Categeory is required
+                    </span>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">File</label>
+                <div class="col-sm-9">
+                    <input type="file" class="form-control" (change)="uploadFile($event)">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-success">Add Project</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

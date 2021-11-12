@@ -1,0 +1,58 @@
+
+<div class="all">
+    <div class="Head " style="background-image: url('assets/pay.png');background-size:100% 100%; background-repeat: no-repeat "></div>
+    <div class="row justify-content-center" >
+        <input type="text" [(ngModel)]="searchjob" class=" form-control Search " placeholder="Search By category Name" />
+    </div>
+
+
+
+    <section id="group" class="pb-5">
+        <div class="container">
+
+
+            <div class="row justify-content-between">
+
+                <div class=" col-sm-12 col-md-5 p-4"  *ngFor="let project of allprojects  |project:searchjob ">
+
+                    <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                        <div class="mainflip">
+
+                            <div class="frontside row">
+                                <div class="card col-sm-10 col-md-5">
+                                    <div class="card-body text-center">
+
+                                        <img src="http://localhost:8000/storage/users/{{project.avatar}}" class="card-img-top" alt="...">
+                                        <h4 class="card-title">{{(project.name) + " " +(project.lname)}}</h4>
+                                        <p-rating [(ngModel)]="project.user_rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                                        <div class="card-text"> {{project.title}}</div>
+                                        <div class="card-text">{{project.cat_name}}</div>
+                                        <h6 class="card-text">{{project.location}}</h6>
+                                        <h6 class="card-title"> {{project.status}}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" col-sm-12 col-md-5 p-4">
+                                <div class="backside row" routerLink="/viewproject/{{project.id}}" width="800px">
+
+                                    <div class=" card col-sm-10 col-md-5">
+                                        <div class="card-body text-center ">
+                                            <h4 class="card-title ">Description</h4>
+                                            <p class="card-text ">{{project.description}}</p>
+
+                                            <!-- <a class="btn btn-primary " routerLink="/viewproject/{{project.id}} ">View</a> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>

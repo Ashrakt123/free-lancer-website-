@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+/*primeng adds*/
+
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+
+/*material icons*/
+
+@import "//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css";
+
+/*signup*/
+
+@import "./assets/css/signup/riliwan-rabo.css";
+@import "./assets/css/signup/style.css";
+@import "./assets/css/signup/form.css";
+@import "./assets/css/signup/loading-bars.css";
+@import url("//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+@import url("assets/css/login/util.css");
+@import url("assets/css/login/main.css");
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css');
+@import url('//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script');
+@import url('//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script');
+body {
+    /* background-color: #f9f9fa; */
+    color: #6c7293;
+}
+
+.containersign,
+.purposal_container {
+    margin-top: 80px;
+}
+
+.containerlogin {
+    margin-top: 150px;
+}
+
+.card-img-left {
+    width: 45%;
+    background: scroll center url('./assets/myimg/login/bg-01.jpg');
+    background-size: cover;
+}

@@ -1,0 +1,93 @@
+<div class="job_container bg mb-5">
+    <div class="form p-3">
+        <h2>Job Details</h2>
+        <hr>
+        <div class="head">
+
+            <h4> {{(project.name) + " " +(project.lname)}} </h4>
+        </div>
+        <div class="job_details">
+            <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+            <h5 class="card-title">{{project.title}}</h5>
+
+            <ul>
+                <li> Category : {{project.cat_name}}</li>
+                <li> Budget : {{project.budget}}</li>
+
+                <li> Time :{{project.Time}}</li>
+            </ul>
+            <p class="job-text" style="font-size: 1em; margin: 2px;">{{project.description}}</p>
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="purposal_container bg">
+
+
+    <div class="form p-3">
+        <h2>Additional Details</h2>
+        <hr>
+        <div class="row justify-content-around">
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label"> Budget</label>
+                <div class="col-sm-10">
+                    <p-inputNumber [(ngModel)]="purposal.budget" name="budget" [showButtons]="true" mode="currency" currency="USD"></p-inputNumber>
+                    <!-- <input type="Text" [(ngModel)]="purposal.budget" class="form-control" placeholder="Enter  budget for this project"> -->
+                </div>
+            </div>
+            <label for="project-time">Time</label>
+            <div class="form-control row my-3">
+
+                <div class="col-md-6">
+                    <p class="text m-1">Choose a time you need to finish project:
+                    </p>
+                    <!-- <p-calendar [(ngModel)]="purposal.time" name="project-time" dateFormat="yy-mm-dd-hh-mm" hourFormat="12"></p-calendar> -->
+                    <input class="form-control input-md" type="datetime-local" id="project-time" name="project-time" [(ngModel)]="purposal.time" value="2021-08-12T19:30" min="2021-08-20T00:00" max="2025-08-01T00:00">
+                </div>
+
+                <!-- <label class="col-sm-2 col-form-label">Time</label>
+                <div class="col-sm-10">
+                    <p-inputMask [(ngModel)]="purposal.time" mask="2029-99-99"></p-inputMask> -->
+                <!-- <p-calendar [(ngModel)]="purposal.time"></p-calendar> -->
+                <!-- </div> -->
+            </div>
+            <!-- <div class="col-lg-10 col-sm-10 m-2"> -->
+            <label class="control-label m-2" for="CoverLetter">Cover Letter</label>
+            <div class="form-control">
+
+                <p class="text m-1">Introduce yourself and explain why you’re a strong candidate for this job. Feel free to suggest any changes to the job details .
+                </p>
+
+
+                <textarea class="form-control input-md" [(ngModel)]="purposal.cover_letter" required id="CoverLetter" name="Cover Letter" type="text" [(ngModel)]="purposal.cover_letter"></textarea>
+            </div>
+            <!-- </div> -->
+
+
+            <!-- <div class="col-lg-10 col-sm-10 m-2">
+                <div class="form-control ">
+                    <label class="control-label m-2 " for="link">Would you mind providing a link to a personal website that you have created?</label>
+                    <textarea class="form-control input-md " required id="link" name="Link" type="text" [(ngModel)]="purposal.link"></textarea>
+                </div>
+            </div> -->
+        </div>
+        <hr>
+        <button class="btn btn-outline-rounded btn-success mx-4" routerLink="/listproject">
+Cancel
+          </button>
+        <button class="btn btn-outline-rounded btn-success  mx-4" (click)="addingpurposal()">
+
+            Submit a Purposal
+            </button>
+
+
+    </div>
+
+</div>

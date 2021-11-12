@@ -1,0 +1,17 @@
+
+/* section7 */
+.section7-container{
+    background-color: #E8F0F2;
+    box-shadow:  5px 10px 18px #888888;;
+}
+.section7 a{
+    background-color: #053742;
+    color: #888b8b ;
+}
+.section7 a:hover{
+    color: #39A2DB;
+}
+.section7 h2{
+    color:#053742
+}
+/* End of Section7 */

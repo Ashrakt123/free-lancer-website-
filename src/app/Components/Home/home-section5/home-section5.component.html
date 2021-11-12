@@ -1,0 +1,39 @@
+<!-- Section5_1 -->
+<div class="container mb-5 mt-5">
+    <div class="row section5_1">
+        <div class="col-md-5">
+            <h2>Most Projects</h2>
+        </div>
+        <div class="col-12 mt-3 ">
+            <div class="row d-flex justify-content-between">
+                <!-- Card1 -->
+                <div class="col-md-4 d-flex justify-content-sm-center mt-3" *ngFor="let project of Projects">
+                    <div class="card " style="width: 18rem;">
+                        <div class="img-card">
+                            <img src="/assets/images/{{project.image}}" class="card-img-top img-fluid" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text fs-6 mb-1">{{project.title}}</p>
+                            <hr class="text-muted">
+                            <div class="row justify-content-between mt-2">
+                                <div class="col-6">
+                                    <p class="font-awsome" style="font-size: 1rem;">
+                                        <p-rating [(ngModel)]="project.rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                                    </p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="text-muted cat-project me-0">{{project.title}}</p>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Freelancer :</small><small class="text-muted"><a class="text-muted"> {{(project.name) + " " +(project.lname)}} </a></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- End of Section5 -->

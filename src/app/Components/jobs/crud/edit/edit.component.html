@@ -1,0 +1,58 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1  class=" row justify-content-center col1" style="margin-top: 3rem;"> Upduate Project</h1>
+
+        </div>
+    </div>
+</div>
+<div class="container my-5 ">
+    <div class="row justify-content-around">
+        <form class="col-10 box px-3" #vali="ngForm" (ngSubmit)="updateProject()">
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" [(ngModel)]="project.title" class="form-control" placeholder="Enter project name" />
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea type="Text" name="description" [(ngModel)]="project.description" class="form-control" placeholder="Enter project description" required></textarea>
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label"> Budget</label>
+                <div class="col-sm-10">
+                    <input type="Text" name="budget" [(ngModel)]="project.budget" class="form-control" placeholder="Enter  budget for this project" required>
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label">Location</label>
+                <div class="col-sm-10">
+                    <input type="Text" name="location" [(ngModel)]="project.location" class="form-control" placeholder="Enter  location for this project" required>
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="categories" class="col-sm-2 col-form-label">Categeory</label>
+
+                <div class="col-sm-10">
+                    <select class="form-control" [(ngModel)]="project.category_id" #category="ngModel" name="category_id" id="categories" required>
+
+                      <option *ngFor="let item of   allcatagories" value="{{item.id}}">{{item.name}}</option>
+                </select>
+                </div>
+            </div>
+
+
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-success" [disabled]="vali.invalid">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

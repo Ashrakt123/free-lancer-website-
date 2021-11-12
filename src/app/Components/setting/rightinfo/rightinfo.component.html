@@ -1,0 +1,239 @@
+<div class="board" style="background-image: url('../../../assets/myimg/signup/bg-registration-form-2.jpg');">
+    <!-- Navigation Area (Circular Tabs) -->
+    <!-- <app-signUp-navbar></app-signUp-navbar> -->
+    <!-- Nested view  -->
+
+    <div class="tab-content">
+        <!-- (ngSubmit)="edit()" -->
+        <form #userForm="ngForm" novalidate enctype="multipart/form-data" [formGroup]="form">
+            <!-- <form (ngSubmit)="onSubmit()" novalidate enctype="multipart/form-data" [formGroup]="form"> -->
+            <div class="tab-pane fade show active">
+                <h4 class="head text-center ">Edit Your Profile</h4>
+                <br/>
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="photo text-center">
+                            <!-- <a routerLink="/profile"> <img src="assets/img/{{user.image}}" alt="" class="rounded-circle mb-2"></a> -->
+                            <img [src]="imageSrc" alt="" class="rounded-circle mb-2" style="width: 100px; height: 100px;">
+                            <!-- <img src="http://localhost:8000/storage/users/{{imageSrc}}" alt="" class="rounded-circle mb-2" style="width: 100px; height: 100px;"> -->
+                        </div>
+                        <div class="form-control col-md-5 mb-3 text-center">
+                            <label for="formFileMultiple" class="form-label">Upload Image</label>
+                            <input type="file" formControlName="image" name="image" id="formFileMultiple" class="form-control" accept="image/*" (change)="uploadImage($event)">
+                            <!-- accept="image/*" (change)="uploadImage($event)" [ngClass]="{'is-invalid':submitted && f.image.errors}"> -->
+                            <!-- <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                            <div *ngIf="f.image.errors.required">Image is requqired</div>
+                          </div> -->
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class='row justify-content-around'>
+                    <div class='col-lg-offset-1 col-lg-10 col-sm-offset-2 col-sm-8'>
+                        <div class="row">
+                            <div class='col-lg-12 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="lname">Name</label>
+                                    <input class="form-control input-md m-1" #name="ngModel" required minlength="3" id="name" name="name" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name">
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors?.required">
+                                            Name is required.
+                                        </div>
+                                        <div *ngIf="name.errors?.minlength">
+                                            Name must be at least 3 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control  ">
+                                    <label class="control-label" for="name">First Name</label>
+                                    <input class="form-control input-md m-1" #name="ngModel" required minlength="4" id="name" name="name" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.name">
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                                        <div *ngIf="name.errors?.required">
+                                            Name is required.
+                                        </div>
+                                        <div *ngIf="name.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="lname">Last Name</label>
+                                    <input class="form-control input-md m-1" #lname="ngModel" required minlength="4" id="lname" name="lname" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.lname">
+                                    <div *ngIf="lname.invalid && (lname.dirty || lname.touched)" class="alert alert-danger">
+                                        <div *ngIf="lname.errors?.required">
+                                            Name is required.
+                                        </div>
+                                        <div *ngIf="lname.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="row">
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="national_id">National ID</label>
+                                    <input class="form-control input-md m-1" #national_id="ngModel" required minlength="14" id="national_id" name="national_id" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.national_id" readonly>
+                                </div>
+                            </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="phone_number">Phone Number</label>
+                                    <p-inputMask name="phoneno" #phone_number="ngModel" [(ngModel)]="user.phone_number" mask="0199 999 9999" max-length="11" class="ng-pristine ng-untouched" [ngModelOptions]="{standalone: true}"></p-inputMask>
+                                    <!-- <input class="form-control input-md m-1" #phone_number="ngModel" required minlength="4" id="phone_number" name="phone_number" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.phone_number"> -->
+                                    <div *ngIf="phone_number.invalid && (phone_number.dirty || phone_number.touched)" class="alert alert-danger">
+
+                                        <div *ngIf="phone_number.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="phone_number.errors?.minlength">
+                                            Name must be at least 11 characters long.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="street">Street</label>
+
+                                    <input class="form-control input-md m-1" #street="ngModel" required minlength="4" id="street" name="street" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.street">
+                                    <div *ngIf="street.invalid && (street.dirty || street.touched)" class="alert alert-danger">
+
+                                        <div *ngIf="street.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="street.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="city">City</label>
+                                    <input class="form-control input-md m-1" #city="ngModel" required minlength="4" id="city" name="city" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.city">
+                                    <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                                        <div *ngIf="city.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="city.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="gender">Gender</label>
+                                    <input class="form-control input-md m-1" #gender="ngModel" required minlength="4" id="gender" name="gender" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.gender" readonly>
+                                </div>
+                            </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="email">Email</label>
+                                    <input class="form-control input-md m-1" #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.email" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" [hidden]="checkUser">
+                            <div class='col-lg-12 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="overview">Overview</label>
+                                    <textarea class="form-control input-md" #overview="ngModel" minlength="25" required id="overview" name="overview" type="text" [(ngModel)]="user.overview" [ngModelOptions]="{standalone: true}"></textarea>
+                                    <div *ngIf="overview.invalid &&(overview.dirty || overview.touched)" class="alert alert-danger">
+                                        <div *ngIf="overview.errors?.required">
+                                            Overview is required.
+                                        </div>
+                                        <div *ngIf="overview.errors?.minlength">
+                                            Overview must be at least 25.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="street">University</label>
+
+                                    <input class="form-control input-md m-1" #university="ngModel" required minlength="4" id="university" name="university" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.university">
+                                    <div *ngIf="university.invalid && (university.dirty || university.touched)" class="alert alert-danger">
+
+                                        <div *ngIf="university.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="university.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="city">Specialization</label>
+                                    <input class="form-control input-md m-1" #specialization="ngModel" required minlength="3" id="specialization" name="specialization" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.specialization">
+                                    <div *ngIf="specialization.invalid && (specialization.dirty || specialization.touched)" class="alert alert-danger">
+                                        <div *ngIf="specialization.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="specialization.errors?.minlength">
+                                            Name must be at least 3 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" [hidden]="checkUser">
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="city">experience</label>
+                                    <input class="form-control input-md m-1" #experience="ngModel" required minlength="25" id="experience" name="experience" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.experience">
+                                    <div *ngIf="experience.invalid && (experience.dirty || experience.touched)" class="alert alert-danger">
+                                        <div *ngIf="experience.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="experience.errors?.minlength">
+                                            Name must be at least 25 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class='col-lg-6 col-sm-10 mb-2 '>
+                                <div class="form-control">
+                                    <label class="control-label" for="city">type</label>
+                                    <input class="form-control input-md m-1" #type="ngModel" required minlength="4" id="type" name="type" type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="user.type" readonly>
+                                    <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                                        <div *ngIf="type.errors?.required">
+                                            national is required.
+                                        </div>
+                                        <div *ngIf="type.errors?.minlength">
+                                            Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-control text-center mb-5">
+                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!userForm.valid" (click)="updateUser()"> Edit <span style="margin-left:10px; " class="glyphicon glyphicon-arrow-right"></span></button>
+                            <!-- <button class="btn btn-success btn-outline-rounded btn-info "  type="submit"> Edite <span style="margin-left:10px; " class="glyphicon glyphicon-arrow-right"></span></button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

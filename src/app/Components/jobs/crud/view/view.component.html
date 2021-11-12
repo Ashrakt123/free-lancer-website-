@@ -1,0 +1,177 @@
+<div class="container">
+    <!--    <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>-->
+    <div class=" d-flex justify-content-center">
+
+        <div class="col1 row justify-content-between">
+
+            <div class="col-md-2">
+                <!-- <a routerLink="/profile/{{project.id}}"> -->
+                <img src="http://localhost:8000/storage/users/{{project.avatar}}" height="100px" class="card-img-top img" alt="...">
+                <!-- </a> -->
+            </div>
+            <div class="col-5 mt-2 mb-3">
+                <h4> {{(project.name) + " " +(project.lname)}} </h4>
+                <p-rating [(ngModel)]="rate" name="rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+            </div>
+            <div class="col-md-2" *ngIf="activeEdit()">
+                <p-splitButton icon="pi pi-cog" [model]="items" styleClass="p-button-secondary"></p-splitButton>
+            </div>
+
+
+            <hr>
+
+            <div class="row mt-3">
+                <div class="col-md-8  ">
+                    <h3 class="title">{{project.title}}</h3>
+                </div>
+                <div class="col-md-3 m-l-100 mt-2">
+                    <h5 class="card-title" name="status" [(ngModel)]="project.status">
+                        {{project.status}}</h5>
+                </div>
+                <hr>
+                <div class="col-md-10 mb-2">{{project.description}}</div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-6"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-paperclip" viewBox="0 0 16 16">
+                <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+              </svg> <a [href]="url" [download]="project.file">
+              {{ project.file }}
+            </a>
+                </div>
+                <!-- <div class="col-6">.col-6</div> -->
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+              </svg>{{project.budget}}</div>
+                <div class="col-md-5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+              </svg> {{project.location}}</div>
+
+                <hr>
+                <div class="col-md-4">
+                    <p-tag value="{{project.cat_name}}"></p-tag>
+                </div>
+            </div>
+
+            <div class="row mt-2" *ngIf="isImage==true">
+                <hr>
+                <img src="http://localhost:8000/storage/projects/files/{{project.file}}">
+            </div>
+
+
+            <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer')  || ( project.owner_id == !onlineUser.id)"></div> -->
+            <div class="purposal_btn" *ngIf="(onlineUser.type !='client')  ">
+                <!-- <div class="purposal_btn" *ngIf="(onlineUser.type =='developer') &&
+                   (project.id != purposal.project_id && project.developer_id != purposal.developer_id )
+                  || ( project.owner_id == !onlineUser.id) "> -->
+
+                <button class="btn btn-outline-rounded btn-success" routerLink="/purposal/{{project.id}}">Submit a
+                    Purposal</button>
+            </div>
+
+            <!--////////////  -->
+
+        </div>
+
+    </div>
+</div>
+<!--****************************  -->
+<!-- <div>
+    <button class="btn btn-outline-rounded btn-primary" (click)="getTask()" routerLink="/viewAcceptPurposal/{{purposal.id}}">
+
+get task
+</button>
+</div> -->
+<!-- ********************************** -->
+<div class="all">
+
+    <div class="container">
+        <div class="row" *ngFor="let purposal of allpurposals">
+            <div class="col-md-10 ">
+                <div class="containerr mb-3 p-5" *ngIf="(purposal.project_id == project.id) && (onlineUser.type =='client') ">
+                    <div class="row">
+
+                        <!-- <div class="logo" style="background-image: url(http://localhost:8000/storage/users/{{purposal.image}})">
+
+                        </div> -->
+                        <div class="row">
+                            <div class="col-md-2">
+                                <!-- <a routerLink="/profile/{{project.id}}"> -->
+                                <img class="image img" src="http://localhost:8000/storage/users/{{purposal.image}}" alt="...">
+                                <!-- </a> -->
+                            </div>
+                            <div class="col-md-5 mt-2 mb-3">
+                                <h4> {{(purposal.name) + " " +(purposal.lname)}} </h4>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-10 mb-2">{{purposal.cover_letter}}</div>
+                            <div class="col-md-5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                            <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+                          </svg>{{purposal.budget}}</div>
+                            <div class="col-md-5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                              <path d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z"/>
+                            </svg> {{purposal.time}}</div>
+                        </div>
+
+
+
+
+
+                        <div>
+                            <button class="btn btn-outline-rounded btn-primary" (click)="accept_purposal()" routerLink="/viewAcceptPurposal/{{purposal.id}}">
+
+                          Accept Purposal
+                      </button>
+
+                    
+                        </div>
+                        
+                        <div class="col-3 ">
+                            <button  class="btn btn-outline-rounded btn-success "  routerLink="/payment/{{purposal.id}}">payment</button>
+                        </div>
+
+                        <!-- <div class="card-body">
+                    <h5 class="text p-2">purposal</h5>
+
+                    <ul class="data row ">
+                        {{purposal.name}}
+                        <li class="col-md-8">
+                            <p> Cover letter : </p> {{purposal.cover_letter}}
+                        </li>
+                        <li class="col-md-8">
+                            <p> Budget : </p> {{purposal.budget}}
+                        </li>
+                        <li class="col-md-8">
+                            <p> Time : </p>{{purposal.time}}
+                        </li>
+
+
+
+
+                    </ul>
+
+                    <div>
+                        <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewAcceptPurposal/{{purposal.id}}">
+
+                            Accept Purposal
+                        </button> -->
+                        <!-- <button class="btn btn-outline-rounded btn-success" (click)="accept_purposal()" routerLink="/viewproject/{{project.id}}"> -->
+                        <!--
+                        Accept Purposal
+                        </button> -->
+
+                        <!-- </div>
+
+                </div>
+            </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

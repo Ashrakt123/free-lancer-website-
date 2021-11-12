@@ -1,0 +1,19 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1>{{data.name}} Portfolio </h1>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center ">
+        <div class="card col-lg-3 col-md-3 col-sm-12 col-xs-12 px-0 pb-2 m-4" (click)="view(portfolio.id)" *ngFor="let portfolio of allPortfolios;">
+            <img *ngIf="portfolio.images!='default.jpeg'" src='http://localhost:8000/storage/portfolios/{{portfolio.images}}' class="card-img-top" alt="...">
+            <div *ngIf="portfolio.images=='default.jpeg'" class="card-img-top" ><p>No Preview</p></div>
+            <div class="card-bodyf" >
+                <h5 class="card-title mt-1 ">{{portfolio.name}}</h5>
+                <p class="card-text mb-2 desc">{{portfolio.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>

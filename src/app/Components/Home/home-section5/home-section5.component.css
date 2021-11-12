@@ -1,0 +1,39 @@
+/* Section5_1 */
+
+.section5_1 .card {
+    text-align: center;
+}
+
+.p-rating .p-rating-icon .pi-star {
+    font-size: 10px !important;
+    color: yellow !important;
+}
+
+.p-rating .p-rating-icon {
+    font-size: 1rem !important;
+}
+
+.section5_1 .cat-project {
+    font-size: 13px;
+}
+
+.section5_1 .img-card {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.section5_1 .card-img-top {
+    transition: 1s;
+}
+
+.section5_1 .card-img-top:hover {
+    transform: scale(1.2, 1.3);
+}
+
+.section5_1 img {
+    height: 100%;
+}
+
+
+/* End of Section5_1 */

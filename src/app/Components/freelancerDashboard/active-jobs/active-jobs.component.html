@@ -1,0 +1,17 @@
+<div class="row bg p-2 mt-4">
+    <div class="col-12">
+        <a class="nav-link active">
+            <i class="mdi mdi-newspaper"></i> Active Jobs
+        </a>
+        <hr class="mt-0">
+        <div class="empty" *ngIf="empty==true">
+            <p>There are no projects</p>
+          </div>
+      <div class="list-group active mb-1" *ngFor="let project of ActivProjects">
+       <a  class="list-group-item list-group-item-action list-group-item-primary title" (click)="viewProject(project.proposalId)"
+        style="color:black"> {{project.title}} <small class="text-muted">{{project.created_at}}</small></a>
+       </div>
+       
+    </div>
+      </div>
+   

@@ -1,0 +1,36 @@
+<div class="all">
+  <div class="Head " style="background-image: url('assets/jobs.png');background-size:100% 100%; background-repeat: no-repeat "></div>
+  <div class="form-group col-sm-8 col-lg-3 filter  ">
+    <input type="text" [(ngModel)]="searchjob" class="form-control Search " placeholder="Search By Job's Name" />
+    </div>
+      <div class="container">
+        <div class="col1"  *ngFor="let item of jobs |job:searchjob " >
+        <div class="card mb-3  headb"> 
+        <div class="head" >
+
+        <img src="./assets/img/profile.png" class="card-img-top" alt="...">
+        <h5>name</h5>
+        </div>
+        <div class="card-body">
+        <h6 class="card-title">{{item.name}}</h6>
+        <p class="card-text" style="font-size: 1em; margin: 2px;">{{item.description}}</p>
+        <p-rating [(ngModel)]="item.rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+        <ul>
+        <li> Budget : {{item.budget}}</li>
+        <li> Final prise : {{item.final_price}}</li>
+        <li> Location : {{item.location}}</li>
+        <li> Status : {{item.status}}</li>
+        <li> Create at : {{item.craeted_at|date:'short'}}</li>
+        <li> Update at : {{item.update_at|date:'short'}}</li>
+        </ul>
+
+              <button type="button"  id="btn"> start </button>
+      </div>
+        
+    
+    </div>
+    </div>
+    </div>
+  </div>
+  
+     

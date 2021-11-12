@@ -1,0 +1,60 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1>Add Project</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-5 ">
+    <div class="row justify-content-around">
+        <form class="col-10 box px-3" (ngSubmit)=" addproject()">
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" [(ngModel)]="Project.title" class="form-control" placeholder="Enter project name" />
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-10">
+                    <textarea type="Text" name="description" [(ngModel)]="Project.description" class="form-control" placeholder="Enter project description"></textarea>
+                </div>
+            </div>
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label"> Budget</label>
+                <div class="col-sm-10">
+
+                    <input type="Text" name="budget" [(ngModel)]="Project.budget" class="form-control" placeholder="Enter  budget for this project">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label">Location</label>
+                <div class="col-sm-10">
+                    <input type="Text" name="location" [(ngModel)]="Project.location" class="form-control" placeholder="Enter  location for this project">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label for="categories" class="col-sm-2 col-form-label">Categeory</label>
+
+                <div class="col-sm-10">
+                    <select class="form-control" [(ngModel)]="Project.category_id" #category="ngModel" name="category_id" id="categories">
+
+                      <option *ngFor="let item of   allcatagories" >{{item.name}}</option>
+                </select>
+                </div>
+            </div>
+
+
+            <div class="form-group row my-3">
+                <label class="col-sm-2 col-form-label"></label>
+                <div class="col-sm-10">
+
+                    <button type="submit" class="btn btn-success">Add</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+
+.container h1{
+  font-size:50px;
+ }
+ .one{
+  padding: 5rem;
+  background-color:#fff;
+}
+
+h3{
+  visibility: hidden;
+}
+h1{
+  text-align:center;
+  color:#053742 ;
+}
+
+.two p{
+  font-size:1rem;
+  margin:1rem ;
+  font-family: cursive;
+
+}
+p{
+ font-size:1.14rem;
+color: black;
+ font-family: cursive;
+ font-weight: bold;
+
+}
+
+
+
+
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 800px) {
+
+h3{
+ visibility:visible;
+ text-align:center;
+margin-top:1em;
+}
+h1{
+ visibility: hidden;
+}
+}
+
+
+
+
+

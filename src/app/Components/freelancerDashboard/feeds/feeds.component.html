@@ -1,0 +1,24 @@
+<!--Start of Feed -->
+<div class="row bg p-2 pt-0 mt-4">
+    <div class="col-12">
+        <a class="nav-link active">
+            <i class="mdi mdi-newspaper"></i> Feed
+        </a>
+        <hr class="mt-0">
+    </div>
+    <div class="profile-feed " *ngFor="let project of recentProjects">
+        <div class="d-flex align-items-start profile-feed-item title" (click)="viewProject(project.id)">
+            <img src="http://localhost:8000/storage/users/{{project.image}}" alt="profile" class="img-sm rounded-circle">
+            <div class="ml-4">
+                <b class="mt-1 " (click)="viewProject(project.id)">{{project.title}}</b>
+                <p>
+                    {{project.description}}
+                </p>
+                <h6 class="mt-2">
+                    {{project.name}} {{project.lname}}
+                    <small class="ml-4 text-muted"><i class="mdi mdi-clock mr-1"></i>{{project.created_at}}</small>
+                </h6>
+            </div>
+        </div>
+    </div>
+</div>

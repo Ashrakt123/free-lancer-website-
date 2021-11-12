@@ -1,0 +1,38 @@
+<div class="container-fluied main">
+    <div class="row cover">
+        <div class="mt-4">
+            <h1>Project Submission</h1>
+        </div>
+    </div>
+</div>
+<div class="container my-5 ">
+    <div class="row justify-content-around">
+
+        <form class="col-10 box px-5" (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">Message</label>
+                <div class="col-sm-9">
+                    <input class="form-control input-md m-1" formControlName="description" type="text">
+                    <span class="text-danger" *ngIf="(formControl.description.touched || submitted) && formControl.description.errors?.required">
+                        Message is required
+              </span>
+
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label">File</label>
+                <div class="col-sm-9">
+                    <input type="file" class="form-control" (change)="uploadFile($event)">
+                </div>
+            </div>
+
+            <div class="form-group row my-3">
+                <label class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <button type="submit" class="btn btn-success" >Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

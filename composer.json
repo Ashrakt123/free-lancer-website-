@@ -1,0 +1,5 @@
+{
+    "require": {
+        "spatie/laravel-stripe-webhooks": "^2.6"
+    }
+}

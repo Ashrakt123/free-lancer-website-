@@ -1,0 +1,55 @@
+<div class="tab-content" id="nav-tabContent">
+    <section class="content mt-5 tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="card" [hidden]="checkUser">
+            <div class="card-header bg-white text-left">
+                OVERVIEW
+            </div>
+            <div class="card-body">
+                {{user.overview}}
+            </div>
+        </div>
+        <!-- <div class="card mt-4">
+            <div class="card-header bg-white text-left">
+                My Skills
+            </div>
+            <div class="card-body">
+
+            </div>
+        </div> -->
+    </section>
+    <section class="content mt-5 tab-pane fade show" [ngClass]="[checkUser ? 'active' : 'none']" id="feedback" role="tabpanel" aria-labelledby="feedback-tab">
+        <div class="card">
+            <div class="card-header bg-white text-left">
+                Feedback
+            </div>
+            <div class="card-body">
+
+                <div class="all">
+                    <div class="container">
+                        <div class="col1" *ngFor="let review of  Reviews ">
+                            <div class="card mb-3  headb">
+                                <div class="head">
+
+                                    <img src="http://localhost:8000/storage/users/{{review.image}}" class="card-img-top" alt="...">
+                                    <h5>{{(review.name) + " " + (review.lname)}}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text mb-3" style="font-size: 1em; margin: 2px;">{{review.review}}</p>
+                                    <p-rating [(ngModel)]="review.rate" [readonly]=true [cancel]=false [stars]="5"></p-rating>
+                                    <ul>
+                                        <li> project Name : {{review.title}}</li>
+
+                                    </ul>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
